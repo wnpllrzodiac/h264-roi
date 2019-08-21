@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd build
+./h264_roi -q 33 -F 25 out.h264 good.h264 100,100,500,400:27

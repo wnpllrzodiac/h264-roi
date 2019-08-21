@@ -41,6 +41,7 @@ bool ZH264Encoder::outputSetup(zu64 width, zu64 height, zu32 fps){
 }
 
 bool ZH264Encoder::validSettings(){
+    //printf("in %d x %d, out %d x %d @ %d\n", inwidth, inheight, outwidth, outheight, outfps);
     if(inwidth > 0 && inheight > 0 &&
        outwidth > 0 && outheight > 0 && outfps > 0)
         return true;

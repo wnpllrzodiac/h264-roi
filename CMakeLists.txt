@@ -33,7 +33,11 @@ CONFIGURE_FILE(roi.sh roi.sh COPYONLY)
 ADD_DEFINITIONS(-DBUILDING)
 
 # H264-ROI
+include_directories("/home/suhui/work/git/srs/trunk/objs/ffmpeg.src/_release/include")
+LINK_DIRECTORIES("/home/suhui/work/git/srs/trunk/objs/ffmpeg.src/_release/lib")
+
 ADD_EXECUTABLE(h264_roi ${H264_ROI_SOURCES})
+
 LibChaos_Configure_Target(h264_roi)
 
 IF(LibChaos_PLATFORM_WINDOWS)
@@ -41,7 +45,7 @@ IF(LibChaos_PLATFORM_WINDOWS)
     #TARGET_LINK_LIBRARIES(h264_roi C:/bin/TDMGCC/MinGW64/lib/libfdk-aac.a)
     #TARGET_LINK_LIBRARIES(h264_roi C:/bin/TDMGCC/MinGW64/lib/libx264.a)
 ELSE()
-    TARGET_LINK_LIBRARIES(h264_roi avformat avcodec avdevice avutil swscale swresample x264 z)
+    TARGET_LINK_LIBRARIES(h264_roi avformat avcodec avdevice avutil swscale swresample webp x265 x264 speex mp3lame fdk-aac lzma z)
     #TARGET_LINK_LIBRARIES(h264_roi avformat avcodec avdevice avutil swscale swresample x264 z mp3lame)
 ENDIF()
 
